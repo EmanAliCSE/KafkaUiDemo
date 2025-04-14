@@ -1,0 +1,58 @@
+<div class="container mt-5">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter ID to search logs..."
+        [(ngModel)]="logId"
+      />
+      <button class="btn btn-primary" (click)="fetchLogs()">Find</button>
+    </div>
+  
+    <div *ngIf="logs.length > 0">
+        <div class="table-responsive mt-4">
+            <table class="table table-bordered table-striped table-hover">
+              <thead class="table-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Timestamp</th>
+                  <th>Level</th>
+                  <!-- <th>Application</th> -->
+                  <th>Message</th>
+                  <th>Template</th>
+                  <th>Action ID</th>
+                  <th>Request ID</th>
+                  <th>Exception</th>
+                  <!-- <th>Properties</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let log of logs">
+                  <td>{{ log.id }}</td>
+                  <td>{{ log.timeStamp | date }}</td>
+                  <td>{{ log.level }}</td>
+                 
+                  <td>{{ log.message }}</td>
+                  <td>{{ log.messageTemplate }}</td>
+                  <td>{{ log.actionId }}</td>
+                  <td>{{ log.requestId || '-' }}</td>
+                  <td>
+                   
+                   {{ log.exception || 'No exception' }}
+                   
+                  </td>
+                  <!-- <td>
+                    <pre>{{ log.properties }}</pre>
+                  </td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+    </div>
+  
+    <div *ngIf="logs.length === 0 && searched" class="text-muted">
+      No logs found for ID "{{ logId }}"
+    </div>
+  </div>
+  

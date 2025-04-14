@@ -1,0 +1,33 @@
+<h3>Outbox Messages</h3>
+<table class="table table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Key</th>
+      <th>Topic</th>
+      <th>Status</th>
+      <th>Type</th>
+      <th>Content</th>
+      <th>Created At</th>
+      <th>Processed At</th>
+      <th>Retry Count</th>
+      <th>Last Attempt</th>
+      <th>Error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let msg of outboxMessages">
+      <td>{{ msg.id }}</td>
+      <td>{{ msg.key }}</td>
+      <td>{{ msg.topic }}</td>
+      <td>{{ msg.status }}</td>
+      <td>{{ msg.type }}</td>
+      <td>{{ msg.content }}</td>
+      <td>{{ msg.createdAt | date}}</td>
+      <td>{{ msg.processedAt ? (msg.processedAt | date) : '-' }}</td>
+      <td>{{ msg.retryCount }}</td>
+      <td>{{ msg.lastAttemptAt ? (msg.lastAttemptAt | date) : '-' }}</td>
+      <td>{{ msg.error || '-' }}</td>
+    </tr>
+  </tbody>
+</table>

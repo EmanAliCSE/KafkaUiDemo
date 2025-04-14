@@ -1,0 +1,25 @@
+<h3>All Tickets</h3>
+<table class="table table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>User ID</th>
+      <th>Quantity</th>
+      <th>Booking Time</th>
+      <th>Status</th>
+      <th>Processed Time</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of bookings">
+      <td>{{ booking.id }}</td>
+      <td>{{ booking.userId }}</td>
+      <td>{{ booking.quantity }}</td>
+      <td>{{ booking.bookingTime | date }}</td>
+      <td>{{ booking.status }}</td>
+      <td>{{ booking.processedTime ? (booking.processedTime | date) : '-' }}</td>
+     
+    </tr>
+  </tbody>
+</table>
