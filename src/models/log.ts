@@ -6,8 +6,8 @@ export interface Log {
     level: string;
     actionId?: string;       
     requestId?: string;
-    application?: string;
+    // application?: string;
     exception?: string;
-    properties: string;
+    // properties: string;
   }
   
