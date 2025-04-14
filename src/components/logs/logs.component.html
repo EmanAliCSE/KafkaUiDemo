@@ -2,11 +2,13 @@
     <div class="input-group mb-3">
       <input
         type="text"
-        class="form-control"
+        class="form-control" required
         placeholder="Enter ID to search logs..."
         [(ngModel)]="logId"
       />
-      <button class="btn btn-primary" (click)="fetchLogs()">Find</button>
+      <button class="btn btn-primary"  
+      [disabled]="!logId || logId.trim().length !== 36"
+       (click)="fetchLogs()">Find</button>
     </div>
   
     <div *ngIf="logs.length > 0">
